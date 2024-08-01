@@ -1,57 +1,72 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel 10 Custom Login and Registration - Register Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-</head>
-<body>
-<div class="row justify-content-center mt-5">
-    <div class="col-lg-4">
-        <div class="card">
-            <div class="card-header">
-                <h1 class="card-title">Register</h1>
-            </div>
-            <div class="card-body">
-                @if(Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ Session::get('success') }}
-                    </div>
-                @endif
+<!DOCTYPE html>
 
-                @if(Session::has('errors'))
-                    <div class="alert alert-danger" role="alert">
-                        @foreach(Session::get('errors') as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                @endif
+<html>
 
-                <form action="{{ route('register') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" value="{{ old('name') }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="name@example.com" value="{{ old('email') }}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password">
-                    </div>
-                    <div class="mb-3">
-                        <div class="d-grid">
-                            <button class="btn btn-primary">Register</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+
+    <body>
+
+        <div class="register-div">
+
+            <h2 class="register-title">Register</h2>
+
+            @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
+            @if(Session::has('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{Session::get('error')}}
+                </div>
+            @endif
+
+            <form autocomplete="off" action="{{route('register')}}" method="post">
+
+                @csrf
+
+                <div class="register-form m-4">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="name" placeholder="Name">
+                </div>
+
+                <div class="register-form m-4">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" name="email" placeholder="Email">
+                </div>
+
+                <div class="register-form m-4">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="register-form m-4">
+                    <input type="submit" value="Create Account">
+                </div>
+
+            </form>
+
+            <p class="register-redirect text-center">Already have an account? <span><a href="#">Login here</a></span></p>
+
         </div>
-    </div>
-</div>
-</body>
+
+    </body>
+
 </html>

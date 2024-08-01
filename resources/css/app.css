@@ -1,0 +1,68 @@
+/********************REGISTER********************/
+html, body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3f6ff1;
+}
+
+.register-div{
+    max-width: 40rem;
+    padding: 3rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.register-title{
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    color: #4d4d4d;
+}
+
+.register-form{
+    position: relative;
+}
+
+.register-form i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #a1a1a1;
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="submit"]{
+    border: none;
+    border-bottom: 1px solid #afa7a7;
+    padding: 10px 10px 10px 40px;
+    font-family: "Arial";
+    color: #4d4d4d;
+    width: 100%;
+}
+
+.register-form input[type="submit"]{
+    background: #3f6ff1;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.register-form input[type="submit"]:hover{
+    opacity: calc(0.8);
+}
+
+.register-redirect{
+    font-family: "Roboto", sans-serif;
+    color: #4d4d4d;
+}
+
+.register-redirect span{
+    color: #3f6ff1;
+}
+/********************REGISTER********************/

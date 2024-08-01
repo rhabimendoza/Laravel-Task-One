@@ -17,36 +17,36 @@ class AuthController extends Controller{
         return view('login');
     }
 
-
-    public function registerPost(Request $request) {
+    public function registerPost(Request $request){
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
     
-        $errors = [];
+        $error = '';
     
-        if (empty($name)) {
-            $errors[] = 'Name cannot be blank.';
+        if(empty($name)) {
+            $error = 'Name cannot be blank.';
         }
-        if (empty($email)) {
-            $errors[] = 'Email cannot be blank.';
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'Invalid email format.';
-        } elseif (User::where('email', $email)->exists()) {
-            $errors[] = 'Email is already taken.';
+        elseif(empty($email)){
+            $error= 'Email cannot be blank.';
+        } 
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $error = 'Invalid email format.';
+        } 
+        elseif(User::where('email', $email)->exists()){
+            $error = 'Email is already taken.';
         }
-        if (empty($password)) {
-            $errors[] = 'Password cannot be blank.';
-        } elseif (strlen($password) < 8) {
-            $errors[] = 'Password must be at least 8 characters long.';
-        }
-    
-        // If there are errors, return back with errors
-        if (!empty($errors)) {
-            return back()->with('errors', $errors)->withInput();
+        elseif(empty($password)) {
+            $error = 'Password cannot be blank.';
+        } 
+        elseif(strlen($password) < 8){
+            $error = 'Password must be at least 8 characters long.';
         }
     
-        // Create new user if validation passes
+        if (!empty($error)) {
+            return back()->with('error', $error)->withInput();
+        }
+    
         $user = new User();
         $user->name = $name;
         $user->email = $email;
@@ -56,7 +56,6 @@ class AuthController extends Controller{
         return back()->with('success', 'Account created successfully!');
     }
     
-
     public function loginPost(Request $request){
         $validated = $request->validate([
             'email' => 'required|email',
