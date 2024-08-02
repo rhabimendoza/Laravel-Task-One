@@ -9,7 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        @vite(['resources/css/main.css', 'resources/js/app.js'])
+        @vite(['resources/css/main.css'])
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,8 @@
                     <div class="navbar-nav ms-auto">
                         <a class="nav-link mx-3" href="{{route('index')}}">Home</a>
 
+                        <a class="nav-link mx-3" href="{{route('addproducts')}}">Add Products</a>
+
                         <form action="{{route('logout')}}" method="post" role="search">
                             @csrf
                             @method('delete')
@@ -45,6 +47,7 @@
                     </div>
 
                 </div>
+                
             </div>
 
         </nav>

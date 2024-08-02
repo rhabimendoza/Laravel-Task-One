@@ -89,14 +89,5 @@ class AuthController extends Controller{
     
         return back()->with('error', 'Email and password did not match!');
     }
-    
-    public function index(){
-        return view('index');
-    }
-
-    public function logout(){
-        Auth::logout();
-        return redirect()->route('login');
-    }
 
 }
