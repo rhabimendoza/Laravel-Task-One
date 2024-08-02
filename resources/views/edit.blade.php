@@ -2,36 +2,40 @@
 
 @section('content')
     
-    <h2 class="title-head p-3">Edit a Product</h2>
+    <div class="container">
 
-    <form method="post" action="{{route('update', ['id' => $product->id])}}">
-        
-        @csrf
+        <h2 class="title-head p-3">Edit a Product</h2>
 
-        <div>
-            <label>Name</label>
-            <input type="text" name="name" value="{{$product->name}}"/>
-        </div>
+        <form method="post" action="{{route('update', ['id' => $product->id])}}">
+            
+            @csrf
 
-        <div>
-            <label>Quantity</label>
-            <input type="text" name="quantity" value="{{$product->quantity}}"/>
-        </div>
+            <div class="form-group m-3">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name" value="{{$product->name}}"/>
+            </div>
 
-        <div>
-            <label>Price</label>
-            <input type="text" name="price" value="{{$product->price}}"/>
-        </div>
+            <div class="form-group m-3">
+                <label>Quantity</label>
+                <input type="text" class="form-control" name="quantity" value="{{$product->quantity}}"/>
+            </div>
 
-        <div>
-            <label>Description</label>
-            <input type="text" name="description" value="{{$product->description}}"/>
-        </div>
+            <div class="form-group m-3">
+                <label>Price</label>
+                <input type="text" class="form-control" name="price" value="{{$product->price}}"/>
+            </div>
 
-        <div>
-            <input type="submit" value="Update Product"/>
-        </div>
+            <div class="form-group m-3">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" value="{{$product->description}}"/>
+            </div>
 
-    </form>
+            <div>
+                <input type="submit" class="btn-create m-3 p-2" value="Update Product"/>
+            </div>
+
+        </form>
+    
+    </div>
 
 @endsection

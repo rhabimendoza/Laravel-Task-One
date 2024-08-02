@@ -17,14 +17,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     
     <body>
 
-        <nav class="navbar navbar-expand-sm bg-body-tertiary mx-3">
+        <nav class="navbar navbar-expand-sm">
 
             <div class="container-fluid">
 
@@ -55,6 +53,7 @@
         </nav>
 
         <div>
+
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{Session::get('success')}}
@@ -66,6 +65,7 @@
                     {{Session::get('error')}}
                 </div>
             @endif
+            
         </div>
         
         <main>
