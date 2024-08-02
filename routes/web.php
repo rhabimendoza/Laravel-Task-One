@@ -13,7 +13,10 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [HomeController::class, 'update'])->name('update');
+    Route::delete('/destroy/{id}', [HomeController::class, 'destroy'])->name('destroy');
     Route::get('/addproducts', [HomeController::class, 'addproducts'])->name('addproducts');
     Route::post('/addproducts', [HomeController::class, 'addproductsPost'])->name('addproducts');
-    Route::delete('/logout', [HomeController::class, 'logout'])->name('logout');
+    Route::delete('/logout', [HomeController::class, 'logout'])->name('logout'); 
 });

@@ -2,19 +2,7 @@
 
 @section('content')
     
-    <h2 class="title-head p-3">Create a product</h2>
-
-    @if(Session::has('success'))
-        <div class="alert alert-success" role="alert">
-            {{Session::get('success')}}
-        </div>
-    @endif
-
-    @if(Session::has('error'))
-        <div class="alert alert-danger" role="alert">
-            {{Session::get('error')}}
-        </div>
-    @endif
+    <h2 class="title-head p-3">Create a Product</h2>
 
     <form method="post" action="{{route('addproducts')}}">
         

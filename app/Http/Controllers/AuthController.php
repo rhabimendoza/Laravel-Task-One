@@ -11,10 +11,6 @@ class AuthController extends Controller{
     public function register(){
         return view('register');
     }
- 
-    public function login(){
-        return view('login');
-    }
 
     public function registerPost(Request $request){
         $name = $request->input('name');
@@ -30,7 +26,7 @@ class AuthController extends Controller{
             $error= 'Email cannot be blank.';
         } 
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $error = 'Invalid email format.';
+            $error = 'Email format is invalid.';
         } 
         elseif(User::where('email', $email)->exists()){
             $error = 'Email is already taken.';
@@ -54,6 +50,10 @@ class AuthController extends Controller{
     
         return back()->with('success', 'Account created successfully!');
     }
+
+    public function login(){
+        return view('login');
+    }
     
     public function loginPost(Request $request){
         $email = $request->input('email');
@@ -65,7 +65,7 @@ class AuthController extends Controller{
             $error= 'Email cannot be blank.';
         } 
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $error = 'Invalid email format.';
+            $error = 'Email format is invalid.';
         } 
         elseif(empty($password)){
             $error = 'Password cannot be blank.';
