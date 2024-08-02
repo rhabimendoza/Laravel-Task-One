@@ -24,7 +24,7 @@
 
         <div class="form-div">
 
-            <h2 class="form-title">Register</h2>
+            <h2 class="form-title">Login</h2>
 
             @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
@@ -38,14 +38,9 @@
                 </div>
             @endif
 
-            <form autocomplete="off" action="{{route('register')}}" method="post">
+            <form autocomplete="off" action="{{route('login')}}" method="post">
 
                 @csrf
-
-                <div class="form-form m-4">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" name="name" placeholder="Name">
-                </div>
 
                 <div class="form-form m-4">
                     <i class="fa-solid fa-envelope"></i>
@@ -58,12 +53,12 @@
                 </div>
 
                 <div class="form-form m-4">
-                    <input type="submit" value="Create Account">
+                    <input type="submit" value="Login Account">
                 </div>
 
             </form>
 
-            <p class="form-redirect text-center">Already have an account? <span><a href="{{route('login')}}">Login here</a></span></p>
+            <p class="form-redirect text-center">Don't have an account? <span><a href="{{route('register')}}">Register here</a></span></p>
 
         </div>
 
